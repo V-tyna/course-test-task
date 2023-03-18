@@ -1,0 +1,20 @@
+<video
+  [id]="videoId"
+  #video
+  controls
+  crossorigin
+  autoplay
+  width="100%"
+  type="application/x-mpegURL"
+  (pause)="pauseHandler($event)"
+  (keydown.arrowup)="speedUpHandler($event)"
+  (keydown.arrowdown)="speedDownHandler($event)"
+  (leavepictureinpicture)="leavePictureInPictureHandler($event)"
+  (loadstart)="loadHandler()"
+></video>
+<div class="speed-info">
+  <div>
+      Current speed is: <span>{{currentSpeed}}</span>
+    </div>
+   <button (click)="togglePictureInPicture()">Toggle picture-in-picture</button>
+</div>
