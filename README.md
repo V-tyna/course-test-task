@@ -34,10 +34,10 @@ The same link could work properly or with an error.
 
 ### Solution:
 Server handles CORS errors. Added cors package and credentials(token).
-Video html tag still have the error and in the client/shared/validationLinkHelper.ts I've made validation if request by the link is ok or not. Then in the VideoService, this function is used. I added comments in the code for faster understanding what is going on there. 
+Video html tag still have the error and in the client/shared/error-link.handler.ts I've made validation if request by the link is ok or not. Then in the VideoService, this function is used. I added comments in the code for faster understanding what is going on there. 
 
 ### Alternative approach:
-If there is no CORS issue, the function from client/shared/validationLinkHelper.ts handle all video streaming errors for better user experience.
+If there is no CORS issue, the function from client/shared/error-link.handler.ts handle all video streaming errors for better user experience.
 
 ## Video loading spinner info:
 By default in video added controls, which automatically show spinner. One of the task was adding own loading spinner. I added it, but do not turn off controls (that would disable default spinner and controls) for user comfort. So you can see both spinners custom and default.
