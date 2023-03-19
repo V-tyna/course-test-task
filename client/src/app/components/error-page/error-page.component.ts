@@ -16,7 +16,7 @@ export class ErrorPageComponent implements OnInit {
     private httpService: HttpService,
     private router: Router,
     private location: Location
-  ) {}
+  ) { }
 
   public ngOnInit(): void {
     this.error = this.httpService.error;

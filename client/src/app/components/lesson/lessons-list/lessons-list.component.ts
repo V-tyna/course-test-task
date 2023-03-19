@@ -8,7 +8,7 @@ import { VideoService } from '../../../services/video.service';
   styleUrls: ['./lessons-list.component.css']
 })
 export class LessonsListComponent implements OnInit {
-  @Input() public lessonsList!: [Lesson];
+  @Input() public lessonsList: Lesson[];
   @Input() public initLessonTitle?: string;
   public currentLesson?: string;
 
@@ -22,7 +22,7 @@ export class LessonsListComponent implements OnInit {
     return Math.round(sec / 60);
   }
 
-  public playVideoHandler(id: string, link: string, idx: number): void {
+  public async playVideoHandler(id: string, link: string, idx: number): Promise<void> {
     this.videoService.setVideoId(id);
     this.setCurrentLesson(id, idx);
 
@@ -35,13 +35,13 @@ export class LessonsListComponent implements OnInit {
     const videoData = localStorage.getItem(id);
     if (videoData && currentRef) {
       const { link, currentTime } = JSON.parse(videoData);
-      this.videoService.runVideoStream(link, currentRef, +currentTime);
+      await this.videoService.runVideoStream(link, currentRef, +currentTime);
       return;
     }
 
     // Initially play video
     if (currentRef) {
-      this.videoService.runVideoStream(link, currentRef, 0);
+      await this.videoService.runVideoStream(link, currentRef, 0);
     }
   }
 

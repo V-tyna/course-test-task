@@ -8,7 +8,7 @@ import { VideoService } from '../../../services/video.service';
 })
 export class VideoContainerComponent implements OnInit, DoCheck, OnDestroy {
   @ViewChild('video', { static: true }) videoRef!: ElementRef<HTMLVideoElement>;
-  @Input() public videoId!: string;
+  @Input() public videoId: string;
   @Input() public videoLink: string | undefined;
   public currentSpeed?: number;
   public isLoading = false;
@@ -16,20 +16,10 @@ export class VideoContainerComponent implements OnInit, DoCheck, OnDestroy {
 
   constructor(private videoService: VideoService) { }
 
-  public ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
     // Initially pass videoRef into VideoService
     this.videoService.videoRef = this.videoRef;
     this.currentSpeed = this.videoRef.nativeElement.playbackRate;
-
-    // Additional idea (out of the task):
-    // Close pictureInPicture element, if current videoRef id is equal to the pictureInPicture element id
-    // Basic implementation:
-    // If res is true, don't execute initial code after
-    // this.checkExistingPictureInPicture().then((res) => {
-    //   if (res) {
-    //     return;
-    //   }
-    // });
 
     // Don't allow execute code below if pictureInPicture still in the document
     if (document.pictureInPictureElement) {
@@ -41,13 +31,13 @@ export class VideoContainerComponent implements OnInit, DoCheck, OnDestroy {
     if (videoData) {
       const { link, currentTime } = JSON.parse(videoData);
       this.videoService.setVideoLink(link);
-      this.videoService.runVideoStream(link, this.videoRef, +currentTime);
+      await this.videoService.runVideoStream(link, this.videoRef, +currentTime);
       return;
     }
 
     // Initially play video
     if (this.videoLink) {
-      this.videoService.runVideoStream(this.videoLink, this.videoRef, 0);
+      await this.videoService.runVideoStream(this.videoLink, this.videoRef, 0);
     }
   }
 
@@ -106,17 +96,4 @@ export class VideoContainerComponent implements OnInit, DoCheck, OnDestroy {
     const link = this.videoService.getVideoLink();
     this.videoService.setVideoDataToLocalStorage(ref.currentTime, ref.id, link!);
   }
-
-  // private async checkExistingPictureInPicture(): Promise<boolean> {
-  //   if (document.pictureInPictureElement && this.videoService.getVideoId() === document.pictureInPictureElement.getAttribute('id')) {
-  //     await document.exitPictureInPicture();
-  //     const link = this.videoService.getVideoLink();
-  //     this.videoService.runVideoStream(link!, this.videoRef, this.videoRef.nativeElement.currentTime);
-  //     return true;
-  //   }
-  //   if (document.pictureInPictureElement) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
 }

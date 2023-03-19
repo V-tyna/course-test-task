@@ -1,0 +1,25 @@
+{
+  "name": "app-for-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server/app.js",
+    "client": "npm run start --prefix client",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V-tyna/course-test-task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/V-tyna/course-test-task/issues"
+  },
+  "homepage": "https://github.com/V-tyna/course-test-task#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

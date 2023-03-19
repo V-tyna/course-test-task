@@ -7,7 +7,7 @@ import { CourseDetail } from '../../../models/lesson.model';
   styleUrls: ['./lesson-details-card.component.css']
 })
 export class LessonDetailsCardComponent {
-  @Input() public lessonDetails!: CourseDetail;
+  @Input() public lessonDetails: CourseDetail;
 
   public countMinutes(sec: number): number {
     return Math.round(sec / 60);

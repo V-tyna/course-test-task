@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #99DDCC;
+  background-color: #99ddcc;
   height: 3rem;
 }
 
@@ -17,7 +17,7 @@ h3 {
 }
 
 .active {
-  background-color: #99DDCC;
+  background-color: #99ddcc;
 }
 
 .list-card {
@@ -38,7 +38,7 @@ h3 {
 .locked {
   width: 175px;
   height: 100%;
-  background-color: #FFE2E2;
+  background-color: #ffe2e2;
 }
 
 .locked:hover {
@@ -48,13 +48,13 @@ h3 {
 .unlocked {
   width: 175px;
   height: 100%;
-  background-color: #99DDCC;
+  background-color: #99ddcc;
   transition: all 0.3s ease-in;
 }
 
 .unlocked:hover {
   cursor: pointer;
-  background-color: #BAD7DF;
+  background-color: #bad7df;
   transition: all 0.3s ease-in;
 }
 

@@ -1,4 +1,3 @@
-
 <div class="list-container">
   <p class="speed-info">
     To change speed: click on video and press key arrow up
@@ -7,15 +6,20 @@
     <mat-icon>arrow_drop_down</mat-icon>
   </p>
   <div class="title">
-    <h3>You watch lesson: {{currentLesson}}</h3>
+    <h3>You watch lesson: {{ currentLesson }}</h3>
   </div>
-  <mat-list *ngFor="let lesson of lessonsList; let i = index" >
+  <mat-list *ngFor="let lesson of lessonsList; let i = index">
     <mat-divider></mat-divider>
     <div class="list-card">
       <img
         [src]="lesson.previewImageLink + '/lesson-' + lesson.order + '.webp'"
       />
-      <p>{{i + 1}}. {{ lesson.title }} ({{countMinutes(lesson.duration)}} min.)</p>
+      <p>
+        {{ i + 1 }}. {{ lesson.title }} ({{
+          countMinutes(lesson.duration)
+        }}
+        min.)
+      </p>
       <button
         [class]="lesson.status === 'unlocked' ? 'unlocked' : 'locked'"
         [disabled]="lesson.status === 'locked'"

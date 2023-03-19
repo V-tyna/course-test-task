@@ -1,4 +1,4 @@
-export const validateLink = async (link: string): Promise<boolean>  => {
+export const errorLinkHandler = async (link: string): Promise<boolean> => {
   try {
     const response = await fetch(link);
     if (response.ok) {

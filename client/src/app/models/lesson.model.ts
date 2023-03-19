@@ -1,7 +1,4 @@
-enum Status {
-  locked = 'locked',
-  unlocked = 'unlocked'
-};
+type Status = 'locked' | 'unlocked';
 
 export interface Lesson {
   id: string,
@@ -18,8 +15,8 @@ export interface Lesson {
 export interface CourseDetail {
   id: string,
   title: string,
-  tags: [string],
-  launchDate: Date,
+  tags: string[],
+  launchDate: Date | string,
   status: string,
   description: string,
   duration: number,
@@ -27,13 +24,13 @@ export interface CourseDetail {
   rating: number,
   meta: {
     slug: string,
-    skills: [string],
+    skills: string[],
     courseVideoPreview?: {
       link: string,
-      duration: string,
+      duration: number,
       previewImageLink: string,
     }
   },
-    lessons: [Lesson],
-    containsLockedLessons: boolean
+  lessons: Lesson[],
+  containsLockedLessons: boolean
 };

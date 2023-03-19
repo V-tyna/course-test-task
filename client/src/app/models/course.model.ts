@@ -1,8 +1,8 @@
 export interface Course {
   id: string,
   title: string,
-  tags: [string],
-  launchDate: Date,
+  tags: string[],
+  launchDate: Date | string,
   status: string,
   description: string,
   duration: number,
@@ -12,10 +12,10 @@ export interface Course {
   rating: number,
   meta: {
     slug: string,
-    skills: [string],
+    skills: string[],
     courseVideoPreview: {
       link: string,
-      duration: string,
+      duration: number,
       previewImageLink: string,
     }
   }

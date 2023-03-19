@@ -95,4 +95,4 @@ async function fetchCourse(id) {
 	}
 }
 
-app.listen(3000, () => [console.log('Server running at post 3000.')]);
+app.listen(3000, () => [console.log('Server is running at post 3000.')]);

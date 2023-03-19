@@ -12,13 +12,13 @@ video {
 .speed-info span {
   margin: 0.5 rem;
   font-size: 1.3rem;
-  background-color: #BAD7DF;
+  background-color: #bad7df;
   border-radius: 5px;
 }
 
 .speed-info button {
   padding: 1rem;
-  background-color: #BAD7DF;
+  background-color: #bad7df;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -28,7 +28,7 @@ video {
 
 .speed-info button:hover {
   cursor: pointer;
-  background-color: #99DDCC;
+  background-color: #99ddcc;
   transition: all 0.3s ease-in-out;
 }
 
@@ -43,7 +43,7 @@ video {
 }
 
 .mat-mdc-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #BAD7DF;
+  --mdc-circular-progress-active-indicator-color: #bad7df;
 }
 
 @media (max-width: 768px) {

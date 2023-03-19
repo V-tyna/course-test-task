@@ -14,14 +14,14 @@
   justify-content: center;
   min-width: 70%;
   height: 450px;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
 .lesson-details-container {
   display: flex;
   min-width: 30%;
   min-height: 100px;
-  background-color: #FFE2E2;
+  background-color: #ffe2e2;
 }
 
 .loader {
@@ -31,7 +31,7 @@
 }
 
 .mat-mdc-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #BAD7DF;
+  --mdc-circular-progress-active-indicator-color: #bad7df;
 }
 
 .not-found {

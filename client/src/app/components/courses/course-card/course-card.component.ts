@@ -9,7 +9,7 @@ import { VideoService } from '../../../services/video.service';
 })
 export class CourseCardComponent {
   @ViewChild('cardVideo', { static: false }) videoRef!: ElementRef<HTMLVideoElement>;
-  @Input() public course!: Course;
+  @Input() public course: Course;
   public isPlayingVideo = false;
 
   constructor(private videoService: VideoService) { }
@@ -18,7 +18,7 @@ export class CourseCardComponent {
     this.isPlayingVideo = true;
     // Link from API, if you don't have CORS Error, uncomment this line:
     // const link = this.course.meta.courseVideoPreview.link;
-    // Links changed:
+    // Link changed:
     const link = this.videoService.simulateDifferentLinks();
     this.videoRef.nativeElement.muted = true;
     this.videoRef.nativeElement.autoplay = true;
