@@ -33,4 +33,4 @@ export interface CourseDetail {
   },
   lessons: Lesson[],
   containsLockedLessons: boolean
-};
+}

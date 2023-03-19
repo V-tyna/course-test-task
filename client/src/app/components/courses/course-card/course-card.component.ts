@@ -8,7 +8,7 @@ import { VideoService } from '../../../services/video.service';
   styleUrls: ['./course-card.component.css']
 })
 export class CourseCardComponent {
-  @ViewChild('cardVideo', { static: false }) videoRef!: ElementRef<HTMLVideoElement>;
+  @ViewChild('cardVideo', { static: false }) videoRef: ElementRef<HTMLVideoElement>;
   @Input() public course: Course;
   public isPlayingVideo = false;
 

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/V-tyna/course-test-task#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "node-fetch": "^2.6.9"
   }
 }

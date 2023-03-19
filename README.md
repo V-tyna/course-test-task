@@ -45,6 +45,7 @@ By default in video added controls, which automatically show spinner. One of the
 # Run tests: 
 - cd client (go to the client folder)
 - npm run test 
+<img width="600" src="https://user-images.githubusercontent.com/78938313/226205680-f6a1bb8a-c1da-4cef-815b-8c8dacc8b636.png" alt="test-screenshot"/>
 
 ## Error API Token
-<img width="600" src="https://user-images.githubusercontent.com/78938313/226197551-90d70931-8f8d-4144-b5bb-494dfd2a559d.png" />
+<img width="600" src="https://user-images.githubusercontent.com/78938313/226197551-90d70931-8f8d-4144-b5bb-494dfd2a559d.png" alt="error-token"/>

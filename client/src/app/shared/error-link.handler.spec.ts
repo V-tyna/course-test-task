@@ -1,24 +1,27 @@
 import { errorLinkHandler } from './error-link.handler';
+import fetchMock from 'fetch-mock-jest';
 
 describe('errorLinkHandler', () => {
-  const validLink = 'https://wisey.app/videos/think-creatively-solve-problems-easily/lesson-5/AppleHLS1/lesson-5.m3u8';
+  const validLink = 'https://www.youtube.com/';
   const invalidLink = 'https://invalidLink';
 
-  it('should return TRUE, if link is VALID', () => {
-
-    global.fetch = jest.fn(() => {
-      return Promise.resolve(new Response(JSON.stringify({})));
-    });
-
-    expect(errorLinkHandler(validLink)).resolves.toBe(true);
+  afterEach(() => {
+    fetchMock.restore();
   });
 
-  it('should return FALSE, if link is INVALID', () => {
+  it('should return TRUE, if link is VALID', async () => {
+    fetchMock.mock(validLink, 200);
 
-    global.fetch = jest.fn(() => {
-      return Promise.resolve(new Response(JSON.stringify({})));
-    });
+    const result = await errorLinkHandler(validLink);
 
-    expect(errorLinkHandler(invalidLink)).resolves.toBe(false);
+    expect(result).toBe(true);
+  });
+
+  it('should return FALSE, if link is INVALID', async () => {
+    fetchMock.mock(invalidLink, 500);
+
+    const result = await errorLinkHandler(invalidLink);
+
+    expect(result).toBe(false);
   });
 });

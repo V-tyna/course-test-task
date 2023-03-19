@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Course } from '../models/course.model';
 import { CourseDetail } from '../models/lesson.model';
 
@@ -8,7 +8,7 @@ import { CourseDetail } from '../models/lesson.model';
   providedIn: 'root'
 })
 export class HttpService {
-  public error?: HttpErrorResponse;
+  public error: HttpErrorResponse;
 
   constructor(private http: HttpClient) { }
 

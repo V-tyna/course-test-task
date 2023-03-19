@@ -7,7 +7,7 @@ import { VideoService } from '../../../services/video.service';
   styleUrls: ['./video-container.component.css']
 })
 export class VideoContainerComponent implements OnInit, DoCheck, OnDestroy {
-  @ViewChild('video', { static: true }) videoRef!: ElementRef<HTMLVideoElement>;
+  @ViewChild('video', { static: true }) videoRef: ElementRef<HTMLVideoElement>;
   @Input() public videoId: string;
   @Input() public videoLink: string | undefined;
   public currentSpeed?: number;
@@ -21,7 +21,7 @@ export class VideoContainerComponent implements OnInit, DoCheck, OnDestroy {
     this.videoService.videoRef = this.videoRef;
     this.currentSpeed = this.videoRef.nativeElement.playbackRate;
 
-    // Don't allow execute code below if pictureInPicture still in the document
+    // Don't allow to execute code below if pictureInPicture still in the document
     if (document.pictureInPictureElement) {
       return;
     }
