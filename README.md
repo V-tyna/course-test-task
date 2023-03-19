@@ -32,7 +32,7 @@ Check screenshot in the end of readme.md
 Request by links from API sometimes (randomly) has a CORS error.
 The same link could work properly or with an error.
 
-### Solvation:
+### Solution:
 Server handles CORS errors. Added cors package and credentials(token).
 Video html tag still have the error and in the client/shared/validationLinkHelper.ts I've made validation if request by the link is ok or not. Then in the VideoService, this function is used. I added comments in the code for faster understanding what is going on there. 
 
