@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { Router } = require('express');
+const fetch = require('node-fetch');
 
 const TOKEN =
 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzM3YjlhNS05ZTc5LTRlZTEtYWRmOC05ZDE5YmE1YzJjZGQiLCJwbGF0Zm9ybSI6InN1YnNjcmlwdGlvbnMiLCJpYXQiOjE2Nzg3ODQ2OTMsImV4cCI6MTY3OTY4NDY5M30.jof6BupoFmpBmnxkfNHRJZJm7V7R8V8S0_e60ROgo34';
@@ -95,4 +96,14 @@ async function fetchCourse(id) {
 	}
 }
 
-app.listen(3000, () => [console.log('Server is running at post 3000.')]);
+async function getToken() {
+	const resp = await fetch(
+		'http://api.wisey.app/api/v1//auth/anonymous?platform=subscriptions'
+	);
+	const token = await resp.json();
+	return token;
+}
+
+app.listen(3000, () => {
+	console.log('Server is running at post 3000.');
+});

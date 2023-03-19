@@ -1,4 +1,4 @@
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Crimson+Text&weight=600&size=30&pause=1000&color=000000&center=true&vCenter=true&multiline=true&width=800&height=60&lines=%F0%9F%91%8B+Hello%2C+and+Welcome." alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Crimson+Text&weight=600&size=30&pause=1000&color=000000&center=true&vCenter=true&multiline=true&width=800&height=60&lines=%F0%9F%91%8B+Hello+and+Welcome." alt="Typing SVG" /></a>
 
 # How to run project:
 
@@ -14,6 +14,17 @@
 - npm run start (in the root folder)
 You should see in the terminal messages: 'Server is running at post 3000.' &  '√ Compiled successfully'. 
 Then http://localhost:4200/ should automatically run at your default browser.
+
+# Demo
+
+## You can watch it by the link: https://drive.google.com/file/d/1BwlAwFAaU1XpOu18sYhnqps1fOFsPO8u/view?usp=share_link
+
+# API Error token:
+(It should work, but for any case).
+If TOKEN in server/app.js is old for you, please go to postman:
+1) Make fork https://www.postman.com/aninix/workspace/genesis-front-end-school/overview
+2) Send request for token ('http://api.wisey.app/api/v1//auth/anonymous?platform=subscriptions')
+Check screenshot in the end of readme.md
 
 # CORS issue: 
 
@@ -34,3 +45,5 @@ By default in video added controls, which automatically show spinner. One of the
 # Run tests: 
 - cd client (go to the client folder)
 - npm run test 
+
+<img width="600" src="https://user-images.githubusercontent.com/78938313/226197551-90d70931-8f8d-4144-b5bb-494dfd2a559d.png" />
