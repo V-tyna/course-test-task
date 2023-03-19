@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { Course } from 'src/app/models/course.model';
-import { VideoService } from 'src/app/services/video.service';
+import { Course } from '../../../models/course.model';
+import { VideoService } from '../../../services/video.service';
 
 @Component({
   selector: 'app-course-card',
@@ -22,7 +22,7 @@ export class CourseCardComponent {
     const link = this.videoService.simulateDifferentLinks();
     this.videoRef.nativeElement.muted = true;
     this.videoRef.nativeElement.autoplay = true;
-    this.videoService.playVideo(link, this.videoRef, 0);
+    this.videoService.playPreviewVideo(link, this.videoRef);
   }
 
   public pauseVideoHandler(): void {

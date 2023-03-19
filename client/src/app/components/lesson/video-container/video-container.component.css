@@ -32,6 +32,20 @@ video {
   transition: all 0.3s ease-in-out;
 }
 
+.video-container {
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}
+
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #BAD7DF;
+}
+
 @media (max-width: 768px) {
   video {
     height: 300px;

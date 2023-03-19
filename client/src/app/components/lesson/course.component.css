@@ -30,6 +30,10 @@
   margin: 3rem auto;
 }
 
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #BAD7DF;
+}
+
 .not-found {
   min-width: 100%;
 }

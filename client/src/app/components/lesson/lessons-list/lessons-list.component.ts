@@ -1,13 +1,13 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Lesson } from 'src/app/models/lesson.model';
-import { VideoService } from 'src/app/services/video.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Lesson } from '../../../models/lesson.model';
+import { VideoService } from '../../../services/video.service';
 
 @Component({
   selector: 'app-lessons-list',
   templateUrl: './lessons-list.component.html',
   styleUrls: ['./lessons-list.component.css']
 })
-export class LessonsListComponent implements OnInit, OnDestroy {
+export class LessonsListComponent implements OnInit {
   @Input() public lessonsList!: [Lesson];
   @Input() public initLessonTitle?: string;
   public currentLesson?: string;
@@ -43,11 +43,6 @@ export class LessonsListComponent implements OnInit, OnDestroy {
     if (currentRef) {
       this.videoService.runVideoStream(link, currentRef, 0);
     }
-  }
-
-  public ngOnDestroy(): void {
-    const videoHls = this.videoService.hlsElement;
-    videoHls?.destroy();
   }
 
   private setCurrentLesson(id: string, idx: number): void {

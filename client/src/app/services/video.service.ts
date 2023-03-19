@@ -1,16 +1,11 @@
 import { ElementRef, Injectable } from '@angular/core';
 import Hls from 'hls.js';
-import { validateLink } from '../shared/validateLink';
+import { validateLink } from '../shared/validateLinkHelper';
 
 const DUMMY_LINKS = [
-  'http://playertest.longtailvideo.com/adaptive/wowzaid3/playlist.m3u8',
-  'http://content.jwplatform.com/manifests/vM7nH0Kl.m3u8',
-  'http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8',
   "https://wisey.app/videos/think-creatively-solve-problems-easily/lesson-5/AppleHLS1/lesson-5.m3u8",
   "https://wisey.app/videos/think-creatively-solve-problems-easily/lesson-3/AppleHLS1/lesson-3.m3u8",
   "https://wisey.app/videos/think-creatively-solve-problems-easily/lesson-4/AppleHLS1/lesson-4.m3u8",
-  'https://moctobpltc-i.akamaihd.net/hls/live/571329/eight/playlist.m3u8',
-  'http://d3rlna7iyyu8wu.cloudfront.net/skip_armstrong/skip_armstrong_multi_language_subs.m3u8',
 ];
 
 @Injectable({
@@ -20,6 +15,7 @@ const DUMMY_LINKS = [
 export class VideoService {
   public videoRef?: ElementRef<HTMLVideoElement>;
   public hlsElement?: Hls;
+  public videoStreamError?: any
   private videoId!: string;
   private videoLink?: string;
 
@@ -42,12 +38,17 @@ export class VideoService {
   }
 
   public runVideoStream(link: string, ref: ElementRef<HTMLVideoElement>, currentTime: number): void {
+    this.videoStreamError = false;
     validateLink(link).then((res) => {
       if (res) {
         this.playVideo(link, ref, currentTime);
       } else {
+        // Change link (small hack) to play video.
         const alternativeLink = this.simulateDifferentLinks();
         this.playVideo(alternativeLink, ref, currentTime);
+        // To handle video stream errors, delete 2 lines above and uncomment 2 lines below:
+        // this.videoRef?.nativeElement.remove();
+        // this.videoStreamError = true;
       }
     });
   }
@@ -60,8 +61,16 @@ export class VideoService {
         startPosition: currentTime
       }
       const hls = new Hls(config);
-      this.hlsElement = hls;
       hls.loadSource(videoSrc);
+      hls.attachMedia(videoRef.nativeElement);
+    }
+  }
+
+  public playPreviewVideo(link:string, videoRef: ElementRef<HTMLVideoElement>) {
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      this.hlsElement = hls;
+      hls.loadSource(link);
       hls.attachMedia(videoRef.nativeElement);
     }
   }

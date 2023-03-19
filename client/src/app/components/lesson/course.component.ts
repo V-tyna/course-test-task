@@ -2,9 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { CourseDetail } from 'src/app/models/lesson.model';
-import { HttpService } from 'src/app/services/http.service';
-import { VideoService } from 'src/app/services/video.service';
+import { CourseDetail } from '../../models/lesson.model';
+import { HttpService } from '../../services/http.service';
+import { VideoService } from '../../services/video.service';
 
 @Component({
   selector: 'app-course',

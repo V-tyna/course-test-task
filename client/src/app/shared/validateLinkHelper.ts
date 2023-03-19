@@ -6,7 +6,6 @@ export const validateLink = async (link: string): Promise<boolean>  => {
     }
     return false;
   } catch (e) {
-    console.error(e);
     return false;
   }
 }

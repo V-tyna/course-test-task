@@ -3,8 +3,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { Course } from 'src/app/models/course.model';
-import { HttpService } from 'src/app/services/http.service';
+import { Course } from '../../models/course.model';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-courses',
