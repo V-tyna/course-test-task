@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course.model';
 import { CourseDetail } from '../models/lesson.model';
+import { BASE_URL } from '../configs/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   public getAllCourses(paramsObj: { limit: number, offset: number }): Observable<{ courses: Course[], allCoursesLength: string }> {
-    return this.http.get<{ courses: Course[], allCoursesLength: string }>('http://localhost:3000/', {
+    return this.http.get<{ courses: Course[], allCoursesLength: string }>(BASE_URL, {
       params: new HttpParams({
         fromObject: paramsObj
       })
@@ -21,6 +22,6 @@ export class HttpService {
   }
 
   public getCourse(id: string): Observable<CourseDetail> {
-    return this.http.get<CourseDetail>('http://localhost:3000/course/' + id);
+    return this.http.get<CourseDetail>(`${BASE_URL}course/${id}`);
   }
 }

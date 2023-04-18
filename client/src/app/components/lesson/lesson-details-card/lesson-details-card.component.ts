@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MINUTE } from '../../../configs/constants';
 import { CourseDetail } from '../../../models/lesson.model';
 
 @Component({
@@ -10,6 +11,6 @@ export class LessonDetailsCardComponent {
   @Input() public lessonDetails: CourseDetail;
 
   public countMinutes(sec: number): number {
-    return Math.round(sec / 60);
+    return Math.round(sec / MINUTE);
   }
 }

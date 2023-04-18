@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, ElementRef } from '@angular/core';
 import { LessonsListComponent } from './lessons-list.component';
 import { VideoService } from '../../../services/video.service';
+import { INITIAL_TIME_MARKER, RANDOM_NUMBER_OF_SECONDS } from '../../../configs/app-mock-data';
 
 describe('LessonsListComponent', () => {
   let component: LessonsListComponent;
@@ -30,7 +31,7 @@ describe('LessonsListComponent', () => {
 
   describe('countMinutes', () => {
     it('should return rounded minutes', () => {
-      expect(component.countMinutes(343)).toBe(6);
+      expect(component.countMinutes(RANDOM_NUMBER_OF_SECONDS)).toBe(6);
     });
   });
 
@@ -54,7 +55,7 @@ describe('LessonsListComponent', () => {
       await component.playVideoHandler(id, link, idx);
 
       expect(videoService.setVideoId).toHaveBeenCalledWith(id);
-      expect(videoService.runVideoStream).toHaveBeenCalledWith(link, mockElementRef, 0);
+      expect(videoService.runVideoStream).toHaveBeenCalledWith(link, mockElementRef, INITIAL_TIME_MARKER);
     });
   });
 
