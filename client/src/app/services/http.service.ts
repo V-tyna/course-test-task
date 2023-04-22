@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course.model';
@@ -9,8 +9,6 @@ import { BASE_URL } from '../configs/constants';
   providedIn: 'root'
 })
 export class HttpService {
-  public error: HttpErrorResponse;
-
   constructor(private http: HttpClient) { }
 
   public getAllCourses(paramsObj: { limit: number, offset: number }): Observable<{ courses: Course[], allCoursesLength: string }> {

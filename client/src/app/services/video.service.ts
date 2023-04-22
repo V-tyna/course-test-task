@@ -55,11 +55,14 @@ export class VideoService {
   public playVideo(videoSrc: string, videoRef: ElementRef<HTMLVideoElement>, currentTime: number): void {
     videoRef.nativeElement.id = this.getVideoId();
     this.setVideoLink(videoSrc);
+
     if (Hls.isSupported() && videoSrc) {
       const config = {
         startPosition: currentTime
       }
+
       const hls = new Hls(config);
+
       hls.loadSource(videoSrc);
       hls.attachMedia(videoRef.nativeElement);
     }
@@ -68,6 +71,7 @@ export class VideoService {
   public playPreviewVideo(link: string, videoRef: ElementRef<HTMLVideoElement>): void {
     if (Hls.isSupported()) {
       const hls = new Hls();
+
       this.hlsElement = hls;
       hls.loadSource(link);
       hls.attachMedia(videoRef.nativeElement);
